@@ -1,15 +1,15 @@
 package com.barbearia.BarberShop.entities;
 
-import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -20,25 +20,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table
-public class Service {
+@Table(name = "tb_barbershops")
+public class BarberShop {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@NotBlank(message = "O nome não pode estar em branco.")
+	@Column(nullable = false)
+	@NotBlank(message = "O nome não pode estar em branco")
 	private String name;
 	
-	@NotBlank(message = "A descrição não pode estar em branco.")
+	@Column(nullable = false)
+	@NotNull
+	private String address;
+	
+	@NotNull
 	private String description;
 	
-	@Min(value = 1, message = "A duração deve ser de pelo menos 1 minuto.")
-	private int durationMin;
+	private String imageUrl;
 	
-	@NotNull(message = "O preço não pode ser nulo.")
-    @DecimalMin(value = "0.00", inclusive = false, message = "O preço deve ser maior que zero.")
-	private BigDecimal price;
+	@NotBlank(message = "O telefone não pode estar em branco")
+	private String phone;
 	
-	private boolean active;
+	@OneToMany(mappedBy = "barberShop")
+	private List<User> users;
+	
+	@OneToMany(mappedBy = "barberShop")
+	private List<ServiceType> services;
 }
