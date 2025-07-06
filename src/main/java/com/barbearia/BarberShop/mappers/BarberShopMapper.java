@@ -14,6 +14,7 @@ public class BarberShopMapper {
 		entity.setAddress(dto.getAddress());
 		entity.setDescription(dto.getDescription());
 		entity.setImageUrl(dto.getImageUrl());
+		entity.setPhone(dto.getPhone());
 		return entity;
 	}
 
@@ -23,6 +24,7 @@ public class BarberShopMapper {
 		dto.setAddress(entity.getAddress());
 		dto.setDescription(entity.getDescription());
 		dto.setImageUrl(entity.getImageUrl());
+		dto.setPhone(entity.getPhone());
 		return dto;
 	}
 	
