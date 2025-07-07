@@ -18,10 +18,11 @@ public class UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
+	@Autowired
 	private BarberShopServices barberShopService;
 	
 	public UserResponseDto createUser(UserDto dto) {
-		BarberShop barberShop = barberShopService.findBarberShopById(dto.getBarberId());
+		BarberShop barberShop = barberShopService.findBarberShopById(dto.getBarberShopId());
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(dto, barberShop)));		
 	}
 

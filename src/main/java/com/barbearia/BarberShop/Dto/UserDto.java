@@ -2,6 +2,8 @@ package com.barbearia.BarberShop.Dto;
 
 import java.util.UUID;
 
+import com.barbearia.BarberShop.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserDto {
 
-	private UUID barberId;
+	private UUID barberShopId;
+	private Role role;
 	private String name; 
 	private String email;
 	private String password;

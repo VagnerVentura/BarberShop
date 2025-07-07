@@ -12,6 +12,7 @@ public class UserMapper {
 
 	public User toEntity(UserDto dto, BarberShop barberShop){
 		User  user = new User();
+		user.setRole(dto.getRole());
 		user.setBarberShop(barberShop);
 		user.setName(dto.getName());
 		user.setEmail(dto.getEmail());
@@ -22,6 +23,7 @@ public class UserMapper {
 
 	public UserResponseDto toDto(User entity){
 		UserResponseDto  dto = new UserResponseDto();
+		dto.setBarberShop(entity.getBarberShop().getName());
 		dto.setName(entity.getName());
 		dto.setEmail(entity.getEmail());
 		dto.setPhone(entity.getPhone());

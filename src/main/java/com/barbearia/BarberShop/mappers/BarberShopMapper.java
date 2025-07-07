@@ -20,6 +20,7 @@ public class BarberShopMapper {
 
 	public BarberShopDto toDto(BarberShop entity) {
 		BarberShopDto dto = new BarberShopDto();
+		dto.setId(entity.getId());
 		dto.setName(entity.getName());
 		dto.setAddress(entity.getAddress());
 		dto.setDescription(entity.getDescription());
