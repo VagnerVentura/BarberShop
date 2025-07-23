@@ -44,7 +44,7 @@ public class BarberShop {
 	private String phone;
 	
 	@OneToMany(mappedBy = "barberShop")
-	private List<User> users;
+	private List<Employee> employees;
 	
 	@OneToMany(mappedBy = "barberShop")
 	private List<ServiceType> services;

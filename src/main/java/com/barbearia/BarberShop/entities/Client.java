@@ -13,9 +13,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_clients")
+@Data
 public class Client {
 
 	@Id
@@ -25,8 +27,10 @@ public class Client {
 	@NotBlank(message = "O nome não pode estar em branco")
 	@Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres")
 	private String name;
+	
+	private String cpf;
 
-    @Pattern(regexp = "\\(?\\d{2}\\)?\\s?\\d{4,5}-\\d{4}", message = "Formato de telefone inválido")
+//    @Pattern(regexp = "\\(?\\d{2}\\)?\\s?\\d{4,5}-\\d{4}", message = "Formato de telefone inválido")
 	@NotBlank(message = "O telefone não pode estar em branco")
 	private String phone;
 

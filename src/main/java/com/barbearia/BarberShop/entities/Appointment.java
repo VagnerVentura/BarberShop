@@ -45,14 +45,12 @@ public class Appointment {
 	@JoinColumn(name ="client_id")
 	private Client client;
 	
-	@OneToOne
-	@JoinColumn(name = "barberShop_id")
-	private BarberShop barberShop;
+	@ManyToOne
+	@JoinColumn(name = "service_type_id")
+	private ServiceType serviceType;
 	
-	@OneToMany(mappedBy = "appointment")
-	private List<ServiceType> serviceType;
-	
-//	@ManyToOne
-//	private User barber;
+	@ManyToOne
+	@JoinColumn(name = "barber_id", nullable = false)
+	private Employee barber;
 
 }

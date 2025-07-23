@@ -46,12 +46,8 @@ public class ServiceType {
 	
 	private boolean active;
 	
-	@ManyToOne
-	@JoinColumn(name = "appointment_id")
-	private Appointment appointment;
-	
 	@ManyToMany(mappedBy="services")
-	private List<User> users;
+	private List<Employee> users;
 	
 	@ManyToOne
 	@JoinColumn(name = "barberShop_id")
