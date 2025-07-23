@@ -4,6 +4,6 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.barbearia.BarberShop.entities.User;
+import com.barbearia.BarberShop.entities.Employee;
 
-public interface UserRepository extends JpaRepository<User, UUID>{}
+public interface UserRepository extends JpaRepository<Employee, UUID>{}

@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 import com.barbearia.BarberShop.Dto.UserDto;
 import com.barbearia.BarberShop.Dto.UserResponseDto;
 import com.barbearia.BarberShop.entities.BarberShop;
-import com.barbearia.BarberShop.entities.User;
+import com.barbearia.BarberShop.entities.Employee;
 
 @Component
 public class UserMapper {
 
-	public User toEntity(UserDto dto, BarberShop barberShop){
-		User  user = new User();
+	public Employee toEntity(UserDto dto, BarberShop barberShop){
+		Employee  user = new Employee();
 		user.setRole(dto.getRole());
 		user.setBarberShop(barberShop);
 		user.setName(dto.getName());
@@ -21,7 +21,7 @@ public class UserMapper {
 		return user;
 	}
 
-	public UserResponseDto toDto(User entity){
+	public UserResponseDto toDto(Employee entity){
 		UserResponseDto  dto = new UserResponseDto();
 		dto.setBarberShop(entity.getBarberShop().getName());
 		dto.setName(entity.getName());
