@@ -55,7 +55,7 @@ public class BarberShopServices {
 
 	public List<UserResponseDto> findAllUsersByBarberShopId(UUID id){
 		var barberShop = findBarberShopById(id);
-		List<UserResponseDto>users = barberShop.getUsers()
+		List<UserResponseDto>users = barberShop.getEmployees()
 				.stream()
 				.map(u -> {
 					return userMapper.toDto(u);
